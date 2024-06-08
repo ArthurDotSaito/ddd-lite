@@ -1,13 +1,14 @@
+import Address from "./address";
+
 class Customer {
   _id: string;
   _name: string = "";
-  _email: string = "";
+  _address!: Address;
   _active: boolean = false;
 
-  constructor(id: string, name: string, email: string) {
+  constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
-    this._email = email;
     this.validate();
   }
 
@@ -20,8 +21,8 @@ class Customer {
       throw new Error("Name is required");
     }
 
-    if (this._email.length == 0) {
-      throw new Error("Email is required");
+    if (this._address !== undefined) {
+      throw new Error("Address is required");
     }
   }
 
@@ -30,13 +31,17 @@ class Customer {
   }
 
   activate() {
-    if (this._email.length == 0) {
-      throw new Error("Email is required to activate customer");
+    if (this._address !== undefined) {
+      throw new Error("Address is required to activate customer");
     }
     this._active = true;
   }
 
   deactivate() {
     this._active = false;
+  }
+
+  setAddress(address: Address) {
+    this._address = address;
   }
 }
