@@ -17,7 +17,7 @@ describe("Order unit tests", () => {
   it("Should calculate total", () => {
     const item_01 = new OrderItem("i1", "item_01", 10);
     const item_02 = new OrderItem("i2", "item_02", 10);
-    const expectedTotal = item_01._price + item_02._price;  
+    const expectedTotal = item_01._price + item_02._price;
     const order = new Order("o1", "c1", [item_01, item_02]);
 
     const total = order.total();
