@@ -12,4 +12,10 @@ describe("Product unit tests", () => {
       let order = new Product("123", "", 100);
     }).toThrowError("Name is required");
   });
+
+  it("Should thrown an error price price is invalid (less than zero)", () => {
+    expect(() => {
+      let order = new Product("123", "product", -100);
+    }).toThrowError("Product should have a price greater than zero");
+  });
 });
