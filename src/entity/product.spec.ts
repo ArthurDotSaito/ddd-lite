@@ -24,4 +24,10 @@ describe("Product unit tests", () => {
     product.changeName("new product 2");
     expect(product.getName()).toBe("new product 2");
   });
+
+  it("Should be able to change a price", () => {
+    const product = new Product("123", "product", 100);
+    product.changePrice(150);
+    expect(product.getPrice()).toBe(150);
+  });
 });
