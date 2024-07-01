@@ -19,4 +19,13 @@ export default class Product {
 
     return true;
   }
+
+  getName(): string {
+    return this._name;
+  }
+
+  changeName(name: string): void {
+    this._name = name;
+    this.validate();
+  }
 }
